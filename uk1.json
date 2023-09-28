@@ -1,0 +1,71 @@
+{
+    "log": {
+        "loglevel": "error"
+    },
+    "inbounds": [
+        {
+            "tag": "socks-in",
+            "port": 443,
+            "listen": "127.0.0.1",
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": false
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "uk1-cf.v2vless.xyz",
+                        "port": 443,
+                        "users": [
+                            {
+                                "email": "user@v2ray.com",
+                                "id": "d9d5ebbe-3d7d-4a75-8003-0988a9a6263d",
+                                "alterId": 0,
+                                "encryption":"none",
+                                "security": "auto"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": true,
+                    "serverName": "uk1-cf.v2vless.xyz"
+                },
+                "wsSettings": {
+                    "connectionReuse": true,
+                    "path": "/vless",
+                    "headers": {
+                        "Host": "uk1-cf.v2vless.xyz"
+                    }
+                }
+            },
+            "mux": {
+                "enabled": true
+            },
+            "tag": "proxy"
+        },
+        {
+            "protocol": "freedom",
+            "tag": "direct",
+            "settings": {
+                "domainStrategy": "UseIP"
+            }
+        }
+    ],
+    "dns": {
+        "servers": [
+            "1.0.0.1",
+            "localhost"
+        ]
+    }
+}

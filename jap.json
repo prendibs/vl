@@ -108,10 +108,10 @@
         "typeHandlerVersion": "2.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "fileUris": ["https://github.com/prendibs/vl/raw/main/se1.sh"]
+          "fileUris": ["https://github.com/prendibs/vl/raw/main/jap.sh"]
         },
         "protectedSettings": {
-          "commandToExecute": "sudo sh se1.sh"
+          "commandToExecute": "sudo sh jap.sh"
         }
       }
     }

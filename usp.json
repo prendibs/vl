@@ -108,10 +108,10 @@
         "typeHandlerVersion": "2.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "fileUris": ["https://github.com/prendibs/vl/raw/main/ie1.sh"]
+          "fileUris": ["https://github.com/prendibs/vl/raw/main/usp.sh"]
         },
         "protectedSettings": {
-          "commandToExecute": "sudo sh ie1.sh"
+          "commandToExecute": "sudo sh usp.sh"
         }
       }
     }

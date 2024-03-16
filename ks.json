@@ -101,9 +101,9 @@
                                     "autoUpgradeMinorVersion": true,
                                     "settings": {
                                         "fileUris": [
-                                            "https://github.com/prendibs/vl/raw/main/64.sh"
+                                            "https://github.com/prendibs/vl/raw/main/64ap.sh"
                                         ],
-                                        "commandToExecute": "sudo sh 64.sh"
+                                        "commandToExecute": "sudo sh 64ap.sh"
                                     }
                                 }
                             }

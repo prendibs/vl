@@ -45,9 +45,9 @@
                 "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
             ],
             "sku": {
-                "name": "Standard_F72s_v2",
+                "name": "Standard_D64a_v4",
                 "tier": "Standard",
-                "capacity": 4
+                "capacity": 5
             },
             "properties": {
                 "largeScaleEnabled": true,

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.15.31.15270",
+      "templateHash": "9933787255903776952"
+    }
+  },
+  "parameters": {
+    "workspaceName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "managedResourceGroupName": "[format('databricks-rg-{0}-{1}', parameters('workspaceName'), uniqueString(parameters('workspaceName'), resourceGroup().id))]",
+    "trimmedMRGName": "[substring(variables('managedResourceGroupName'), 0, min(length(variables('managedResourceGroupName')), 90))]",
+    "managedResourceGroupId": "[format('{0}/resourceGroups/{1}', subscription().id, variables('trimmedMRGName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Databricks/workspaces",
+      "apiVersion": "2023-02-01",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "premium"
+      },
+      "properties": {
+        "managedResourceGroupId": "[variables('managedResourceGroupId')]",
+        "parameters": {
+          "enableNoPublicIp": {
+            "value": true
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "workspace": {
+      "type": "object",
+      "value": "[reference(resourceId('Microsoft.Databricks/workspaces', parameters('workspaceName')), '2023-02-01', 'full')]"
+    }
+  }
+}
